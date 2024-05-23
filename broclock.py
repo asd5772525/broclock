@@ -16,7 +16,7 @@ URL = "https://xiaoapi.cn/API/zs_zdbs.php"        #https://xiaoapi.cn/?action=do
 
 
 
-@plugins.register(name="clock",
+@plugins.register(name="broclock",
                   desc="报时",
                   version="1.0",
                   author="haru",
@@ -25,7 +25,7 @@ URL = "https://xiaoapi.cn/API/zs_zdbs.php"        #https://xiaoapi.cn/?action=do
 
 
 
-class clock(Plugin):
+class broclock(Plugin):
 
     content = None
     def __init__(self):
@@ -47,7 +47,7 @@ class clock(Plugin):
         if self.content.startswith("报时") :
             logger.info(f"[{__class__.__name__}] 收到消息: {self.content}")
             reply = Reply()
-            result = self.clock()
+            result = self.broclock()
             if result != None:
                 reply.type = ReplyType.FILE
                 reply.content = result
@@ -55,13 +55,13 @@ class clock(Plugin):
                 e_context.action = EventAction.BREAK_PASS
             else:
                 reply.type = ReplyType.ERROR
-                reply.content = "获取失败,等待修复⌛️"
+                reply.content = "获取失败,等Haru修复"
                 e_context["reply"] = reply
                 e_context.action = EventAction.BREAK_PASS
 
 
 
-    def clock(self): 
+    def broclock(self): 
         if self.content.startswith("报时"):
             url = URL
             now = datetime.now()  
