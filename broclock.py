@@ -19,7 +19,7 @@ URL = "https://xiaoapi.cn/API/zs_zdbs.php"        #https://xiaoapi.cn/?action=do
 @plugins.register(name="broclock",
                   desc="报时",
                   version="1.0",
-                  author="haru",
+                  author="Haru",
                   desire_priority=100)
 
 
